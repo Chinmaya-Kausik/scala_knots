@@ -1,0 +1,152 @@
+[
+    {
+        "label": "gensm.resources",
+        "millis": 45,
+        "cached": false
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.compilerInterfaceClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.classpath",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.worker",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.upstreamCompileOutput",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.sources",
+        "millis": 19,
+        "cached": false
+    },
+    {
+        "label": "gensm.generatedSources",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.allSources",
+        "millis": 17,
+        "cached": false
+    },
+    {
+        "label": "gensm.allSourceFiles",
+        "millis": 18,
+        "cached": false
+    },
+    {
+        "label": "gensm.transitiveLocalClasspath",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.unmanagedClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaVersion",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.platformSuffix",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.compileIvyDeps",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaOrganization",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaLibraryIvyDeps",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.ivyDeps",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.transitiveIvyDeps",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.compileClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.javacOptions",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacOptions",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaCompilerClasspath",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacPluginIvyDeps",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacPluginClasspath",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "gensm.compile",
+        "millis": 574,
+        "cached": false
+    },
+    {
+        "label": "gensm.localClasspath",
+        "millis": 6,
+        "cached": false
+    },
+    {
+        "label": "gensm.runIvyDeps",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "gensm.ammoniteVersion",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "gensm.ammoniteReplClasspath",
+        "millis": 284,
+        "cached": false
+    },
+    {
+        "label": "gensm.repl",
+        "millis": 16612,
+        "cached": false
+    }
+]

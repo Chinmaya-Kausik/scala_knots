@@ -1,0 +1,8 @@
+{
+    "value": [
+        "ref:7e7a273e:/home/chinmaya_kausik/scala_knots/gensm/resources",
+        "qref:36615039:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.1/scala-library-2.13.1.jar"
+    ],
+    "valueHash": -1260685449,
+    "inputsHash": 198341662
+}
