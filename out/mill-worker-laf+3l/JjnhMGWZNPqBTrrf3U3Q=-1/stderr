@@ -1,0 +1,9 @@
+Exception in thread "MillSocketTimeoutInterruptThread" java.io.IOException: com.sun.jna.LastErrorException: [111] Connection refused
+	at org.scalasbt.ipcsocket.UnixDomainSocket.<init>(UnixDomainSocket.java:62)
+	at mill.main.Server.$anonfun$run$4(MillServerMain.scala:91)
+	at mill.main.Server$.$anonfun$interruptWith$1(MillServerMain.scala:219)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: com.sun.jna.LastErrorException: [111] Connection refused
+	at org.scalasbt.ipcsocket.UnixDomainSocketLibrary.connect(Native Method)
+	at org.scalasbt.ipcsocket.UnixDomainSocket.<init>(UnixDomainSocket.java:57)
+	... 3 more

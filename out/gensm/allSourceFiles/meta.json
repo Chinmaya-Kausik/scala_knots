@@ -1,8 +1,13 @@
 {
     "value": [
-        "ref:89942517:/home/chinmaya_kausik/scala_knots/gensm/src/Braid.scala",
-        "ref:ed15d408:/home/chinmaya_kausik/scala_knots/gensm/src/SGraph.scala"
+        "ref:eb848bf0:/home/chinmaya_kausik/scala_knots/gensm/src/Braid.scala",
+        "ref:33ff6916:/home/chinmaya_kausik/scala_knots/gensm/src/ComplexParse.scala",
+        "ref:b7c18dc5:/home/chinmaya_kausik/scala_knots/gensm/src/Execute.scala",
+        "ref:1e9f55e2:/home/chinmaya_kausik/scala_knots/gensm/src/ExternalPrograms.scala",
+        "ref:f40ba0ad:/home/chinmaya_kausik/scala_knots/gensm/src/HomologyBasis.scala",
+        "ref:c3135da9:/home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala",
+        "ref:6ab16434:/home/chinmaya_kausik/scala_knots/gensm/src/SGraph.scala"
     ],
-    "valueHash": -795793270,
-    "inputsHash": -652659838
+    "valueHash": 1237030487,
+    "inputsHash": -971323443
 }
