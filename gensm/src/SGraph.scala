@@ -151,7 +151,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
     def continueAbove(paths: List[List[SEdge]]): List[List[SEdge]] = {
         val currentEdge = paths.last.last
         val nextEdge = nextEdgeTerm(currentEdge) 
-        if (nextEdge.initial == currentEdge.terminal) {
+        if ((nextEdge.initial == currentEdge.terminal) && (nextEdge.terminal.col == currentEdge.terminal.col)) {
             if (List(2,-2) contains nextEdge.typ) continueAbove(paths :+ (paths.last :+ nextEdge))
             else if(List(5,-5) contains nextEdge.typ) (paths :+ (paths.last :+ nextEdge))
             else paths
@@ -160,12 +160,14 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
     }
 
     def continueBelow(paths: List[List[SEdge]]): List[List[SEdge]] = {
-        val currentEdge = paths.last.last
+        val currentEdge = paths.last.head
         if (currentEdge == ve(currentEdge.initial).head) paths
         else {
         val previousEdge = previousEdgeInit(currentEdge)
-        if ((previousEdge.terminal == currentEdge.initial) && (List(2,-2,5,-5) contains currentEdge.typ)) {
-            if (List(2,-2) contains previousEdge.typ) continueBelow(paths :+ (paths.last :+ previousEdge))
+        if ((previousEdge.terminal == currentEdge.initial) && 
+            (previousEdge.initial.col == currentEdge.initial.col) && 
+            (List(2,-2,5,-5) contains currentEdge.typ)) {
+            if (List(2,-2) contains previousEdge.typ) continueBelow(paths :+ (previousEdge +: paths.last))
             else if (List(3,-3) contains previousEdge.typ) (paths :+ (previousEdge +: paths.last))
             else paths
         } 
@@ -185,7 +187,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def localGraphBasis(init: Int, term: Int): List[Loop] = {
         val edgesBetween = edges.filter(x => (((x.initial.col, x.terminal.col) == (init, term)) && 
-        (x != vve(x.initial, x.terminal).last)))
+        (x != maxConnectors(init)(term - init -1))))
         val paths = edgesBetween.map(x => continueAbove(List(List(x))) ++ continueBelow(List(List(x))).tail).flatMap(x => x)
         paths.map(x => makeLoop(x))
     }
@@ -293,7 +295,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def termRightUp(e: SEdge, loop: Loop, pathIndex: Int): Int = {
         val lst = loop.l
-        if ((lst.map(x => x.last)) contains e) 0
+        if ((lst.map(x => x.last) :+ ve(e.terminal).last) contains e) 0
         else {
             val path = lst(pathIndex)
             val nextEdge = nextEdgeTerm(e)
@@ -306,7 +308,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def initRightUp(e: SEdge, loop: Loop, pathIndex: Int): Int = {
         val lst = loop.l
-        if (lst.map(x => x.head) contains e) 0
+        if ((lst.map(x => x.head) :+ ve(e.initial).head) contains e) 0
         else {
             val path = lst(pathIndex)
             val previousEdge = previousEdgeInit(e)
@@ -417,7 +419,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
         else {
             if (List(2,-2,5,-5) contains e1.typ) e1Index-1
             else e1Index
-        }
+        } 
 
         val b = if (rightLeft == 1) {
             if (List(2,-2,5,-5) contains e2.typ) e2Index -1
@@ -476,8 +478,11 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
             val turns = lst.zip(lst.tail :+ lst.head)
             (0.to(turns.length -1).toList).map(x => if (x %2 == 0) 
             Junction(turns(x)._1.last, turns(x)._2.last, turns(x)._1.last.terminal)
-            else Junction(turns(x)._1.head, turns(x)._2.head, turns(x)._1.head.initial)) ++
-            lst.map(x => (0.to(x.length -2).toList).map(y => Junction(x(y), x(y+1), x(y).terminal))).flatMap(x => x)
+            else Junction(turns(x)._1.head, turns(x)._2.head, turns(x)._1.head.initial)) ++ 
+            (0.to(lst.length -1)).map(x => if (x %2 == 0) ((0.to(lst(x).length -2).toList).map(y => 
+                Junction(lst(x)(y), lst(x)(y+1), lst(x)(y).terminal))) else 
+                ((0.to(lst(x).length -2).toList).map(y => 
+                Junction(lst(x)(y+1), lst(x)(y), lst(x)(y).terminal)))).flatMap(x => x)
         }
 
         val junctions1 = makeJunctions(loop1)
@@ -488,6 +493,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
         
         val jjIntersections = junctions1.map(x => junctions2.map(y => 
             x.intersectJunction(y, colourDir))).flatMap(x => x).fold(0)((a,b) => a+b)
+        
         val je1Intersections = junctions1.map(x => (0.to(lst2.length -1).toList).map(y => 
             if (y %2 == 0) lst2(y).map(z => 
             x.intersectEdge(z, colourDir, 1)) else List[Int]()).flatMap(y => 
@@ -496,6 +502,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
             if (y %2 == 1) lst2(y).map(z => 
             x.intersectEdge(z, colourDir, -1)) else List[Int]()).flatMap(y => 
             y)).flatMap(x => x).fold(0)((a,b) => a+b)
+        
 
         def edgeIntersections(pathIndex1: Int, pathIndex2: Int, 
         loop1: Loop, loop2: Loop, relSign: Int): Int = {
@@ -512,7 +519,6 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
             edgeIntersections(x._1, x._2, loop1, loop2, 1) else 0).fold(0)((a, b) => a+ b)
         val ee2Intersections = pathIndexPairs.map(x => if (x._1 %2 != x._2 %2) 
             edgeIntersections(x._1, x._2, loop1, loop2, -1) else 0).fold(0)((a, b) => a+ b)
-
         jjIntersections + je1Intersections + je2Intersections + ee1Intersections + ee2Intersections
 
     }
@@ -520,6 +526,47 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
     def genSeifertMatrix(colourDir: List[Int]): List[List[Int]] = {
         homologyBasis.map(x => homologyBasis.map(y => (x,y))).map(x => x.map(y => 
         intersectLoops(y._1, y._2, colourDir)))
+    }
+
+
+    def makeSymbolicMatrix(colourDir: List[Int]): List[List[String]] = {
+        val product = (0.to(colourDir.length -1).toList).map(x => 
+            if (colourDir(x) ==1) ("t"++ x.toString) else "").foldRight("1")((a,b) => 
+            if (a != "") (a ++ "*" ++ b) else b)
+        val sgn = colourDir.fold(1)((a,b) => a*b)
+        genSeifertMatrix(colourDir).map(x => x.map(y =>
+            if (y != 0) ((sgn*y).toString ++ "*" ++ product) else "0"))    
+    }
+
+    def addSymbols(a: String, b: String): String = {
+        if (a == "0") b
+        else {
+            if (b == "0") a
+            else if (b(0) == '-') a++b
+            else a ++ "+" ++ b 
+        }
+    }
+
+    def addSymbolicMatrices(m1: List[List[String]], m2: List[List[String]]): List[List[String]] = {
+        if (m1.isEmpty) m2
+        else{
+            if (m1.head.isEmpty) m2
+            else {
+                (0.to(m1.length -1).toList).map(x => 
+                (0.to(m1(0).length -1)).toList.map(y => addSymbols(m1(x)(y), m2(x)(y))))
+            }
+        }
+        
+    }
+
+    def exhaustSignTuples(n: Int): List[List[Int]] = {
+        if (n == 1) List(List(1), List(-1))
+        else exhaustSignTuples(n-1).map(x => (x :+ 1)) ++ exhaustSignTuples(n-1).map(x => (x :+ -1))
+    }
+
+    lazy val presentationMatrix: List[List[String]] = {
+        val lst = exhaustSignTuples(colSigns.length)
+        lst.map(x => makeSymbolicMatrix(x)).reduce((a,b) => addSymbolicMatrices(a,b))
     }
 
 
@@ -616,7 +663,17 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
     lazy val singleColoredLinkSeifertMatrix: List[List[Int]] = {
         val loopPairs = singleColoredLinkHomologyBasis.map(x => singleColoredLinkHomologyBasis.map(y => (x,y)))
         loopPairs.map(x => x.map(y => positiveLiftLinkingNumber(y._2, y._1)))
-    }*/
+    }
+    {
+    import gensm._
+    import Braid._
+    val p = Braid(List(-1,2,-1,2,-1), 3)
+    val sgraph = makeGraph(p, List(0,1), List(1,1))
+    sgraph
+    val List(l1, l2,l3) = sgraph.homologyBasis
+    sgraph.intersectLoops(l3,l2, List(1,1))
+    }
+    */
 
 
 }

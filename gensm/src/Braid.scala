@@ -2,7 +2,7 @@ package gensm
 
 import SGraph._
 
-case class Braid(braidList: List[Int]) {thisBraid =>
+case class Braid(braidList: List[Int], strands: Int) {thisBraid =>
 
 /**    def makeConnected(n: Int, lst: List[Int]): List[Int] = {
         val extra = (1.to(n).toList).map(x => 
@@ -23,14 +23,14 @@ case class Braid(braidList: List[Int]) {thisBraid =>
                 braidToPermHelper(braid.tail, newAccum)
             }
         }
-        val n = (braid.map(x => x.abs)).max + 1
+        val n = strands
         braidToPermHelper(braid, (1.to(n)).toList)
     }
 
 
     lazy val cycleDecomp: List[List[Int]] = {
         val perm = thisBraid.braidToPerm
-        val n = perm.length
+        val n = strands
         def cycleDecompHelper(tally: List[Int], accum: List[List[Int]]): List[List[Int]]= {
             if(tally.isEmpty) accum
             else {
@@ -141,8 +141,6 @@ object Braid {
                                 vertPerm(k), clasps(0), -3, kCol
                             ).addEdges(
                                 clasps, -2, kCol
-                            ).addEdge(
-                                clasps(0), vertPerm(j), braid.head.signum*6, kCol
                             )
                         graphMaker(braid.tail, transpose(i-1, vertPerm), newGraph)
                     }
