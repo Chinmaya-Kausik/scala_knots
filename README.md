@@ -10,5 +10,5 @@ Implementing various link algorithms in scala, starting with obtaining the Stand
 4. If you use Linux, go to the Bash shell and type "java -jar <filePath>/gensm.jar".
 5. If you use Mac OS X, just double click on "gensm".
   
-Email [chinmaya@iisc.ac.in](chinmaya@iisc.ac.in) for any questions.
+Email <chinmaya@iisc.ac.in> for any questions.
  
