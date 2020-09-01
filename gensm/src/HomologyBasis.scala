@@ -10,26 +10,27 @@ object HomologyBasis {
     import Braid._
 
     def homBasis(args: Array[String]): Unit = {
-        println("Please enter the number of strands")
+        println("\nPlease enter the number of strands")
         val strands = readLine().toInt
-        println("Please enter the minimum length of the braid description")
+        println("\nPlease enter the minimum length of the braid description")
         val braidLength = readLine().toInt
         val p = Braid(makeBraid(braidLength, strands), strands)
-        println("The braid description thus generated is")
+        println("\nThe braid description thus generated is")
         println(p.braid)
-        println("The cycle decomposition of the random braid thus generated is")
+        println("\nThe cycle decomposition of the random braid thus generated is")
         println(p.cycleDecomp)
         val nKnots = p.ctComponents
-        println("Please enter the number of colors")
+        println("\nPlease enter the number of colors")
         val nCol = readLine().toInt
         val colList = randomColorAssignments(nCol, nKnots)
-        println("The color assignments thus generated are")
+        println("\nThe color assignments thus generated are")
         println(colList)
         val currentLength = makeGraph(p, colList, (0.to(nCol-1).toList).map(x => 1)).homologyBasis.length
-        println("The initial length is")
+        println("\nThe initial length is")
         println(currentLength)
-        println("Please enter space separated entries for the numbers of attempts you want tested")
+        println("\nPlease enter space separated entries for the numbers of attempts you want tested")
         val tries = readLine().split(" ").map(x => x.toInt)
+        println("\nHere are the number of attempts along with the corresponding sizes of the homology bases")
         val tryValues = tries.map(x => 
         (x, colorPermutations(p, colList, nCol, x, currentLength))).map(x => 
         println(x))

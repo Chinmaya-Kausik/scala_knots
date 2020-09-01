@@ -5,7 +5,7 @@ import scala.util.parsing.combinator._
 import scala.util.Random
 import org.jblas.ComplexDouble
 
-class FormulaParser(val variables: Set[String] = Set(),
+class ComplexParse(val variables: Set[String] = Set(),
                     val constants: Map[String, ComplexDouble] = Map(),
                     val unary: Map[String, ComplexDouble => ComplexDouble] = Map(),
                     val binary: Map[String, (ComplexDouble, ComplexDouble) => ComplexDouble] = Map(),

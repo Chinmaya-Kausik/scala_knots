@@ -131,11 +131,19 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
         
     }
 
+    def maxConnectorCorrector(e: SEdge): SEdge = {
+        if (List(-2,-3) contains e.typ) vve(e.initial, e.terminal).filter(x => x.typ == e.typ.abs).last
+        else e
+    }
+
     lazy val completeGraphHomologyBasis: List[Loop] = {
         val colors = (0.to(colSigns.length -1)).toList
         val ijMatches = colors.tail.map(x => colors.tail.filter(y => y > x).map(y => (x,y))).flatMap(x => x)
         ijMatches.map(x => 
-        makeCompleteGraphHomologyLoop(maxConnectors(0)(x._1-1), maxConnectors(x._1)(x._2-x._1-1), maxConnectors(0)(x._2-1)))
+            makeCompleteGraphHomologyLoop(
+            maxConnectorCorrector(maxConnectors(0)(x._1-1)), 
+            maxConnectorCorrector(maxConnectors(x._1)(x._2-x._1-1)), 
+            maxConnectorCorrector(maxConnectors(0)(x._2-1))))
     }
 
     def nextEdgeTerm(e: SEdge): SEdge = {
@@ -150,29 +158,35 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def continueAbove(paths: List[List[SEdge]]): List[List[SEdge]] = {
         val currentEdge = paths.last.last
-        val nextEdge = nextEdgeTerm(currentEdge) 
-        if ((nextEdge.initial == currentEdge.terminal) && (nextEdge.terminal.col == currentEdge.terminal.col)) {
-            if (List(2,-2) contains nextEdge.typ) continueAbove(paths :+ (paths.last :+ nextEdge))
-            else if(List(5,-5) contains nextEdge.typ) (paths :+ (paths.last :+ nextEdge))
-            else paths
+        if (currentEdge == ve(currentEdge.terminal).last) paths
+        else {
+            val nextEdge = nextEdgeTerm(currentEdge) 
+            if ((nextEdge.initial == currentEdge.terminal) && 
+                (nextEdge.terminal.col == currentEdge.terminal.col)) {
+                if (List(2,-2) contains nextEdge.typ) continueAbove(paths :+ (paths.last :+ nextEdge))
+                else if(List(5,-5) contains nextEdge.typ) (paths :+ (paths.last :+ nextEdge))
+                else paths
         }
         else paths
+
+        }
+        
     }
 
     def continueBelow(paths: List[List[SEdge]]): List[List[SEdge]] = {
         val currentEdge = paths.last.head
         if (currentEdge == ve(currentEdge.initial).head) paths
         else {
-        val previousEdge = previousEdgeInit(currentEdge)
-        if ((previousEdge.terminal == currentEdge.initial) && 
-            (previousEdge.initial.col == currentEdge.initial.col) && 
-            (List(2,-2,5,-5) contains currentEdge.typ)) {
-            if (List(2,-2) contains previousEdge.typ) continueBelow(paths :+ (previousEdge +: paths.last))
-            else if (List(3,-3) contains previousEdge.typ) (paths :+ (previousEdge +: paths.last))
+            val previousEdge = previousEdgeInit(currentEdge)
+            if ((previousEdge.terminal == currentEdge.initial) && 
+                (previousEdge.initial.col == currentEdge.initial.col) && 
+                (List(2,-2,5,-5) contains currentEdge.typ)) {
+                if (List(2,-2) contains previousEdge.typ) continueBelow(paths :+ (previousEdge +: paths.last))
+                else if (List(3,-3) contains previousEdge.typ) (paths :+ (previousEdge +: paths.last))
+                else paths
+            } 
             else paths
-        } 
-        else paths
-    }
+        }
     }
     
     def makeLoop(paths: List[SEdge]): Loop = {
@@ -295,20 +309,33 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def termRightUp(e: SEdge, loop: Loop, pathIndex: Int): Int = {
         val lst = loop.l
-        if ((lst.map(x => x.last) :+ ve(e.terminal).last) contains e) 0
+        if ((lst.map(x => x.last)) contains e) 0
+        else if (ve(e.terminal).last == e) {
+            val path = lst(pathIndex)
+            val pathNextEdge = path(path.indexOf(e)+1)
+            val anomalousCaseTypes = (pathNextEdge.typ.abs == 5) && (List(-2,-3) contains e.typ)
+            if(anomalousCaseTypes) {
+                val pathAdjacentEdgeIsTopmost = (pathNextEdge == edges(edges.indexOf(
+                    continueBelow(List(List(e))).last.head) -1))
+                if (pathAdjacentEdgeIsTopmost) 1
+                else 0
+            }
+            else 0
+        }
+                
         else {
             val path = lst(pathIndex)
             val nextEdge = nextEdgeTerm(e)
             val nextEdgeIsPathAdjacent = (nextEdge == path(path.indexOf(e)+1))
             val edgesConnect = (List(2,-2,3,-3) contains e.typ) && (List(2,-2,5,-5) contains nextEdge.typ)
             if (nextEdgeIsPathAdjacent && edgesConnect) 1
-            else 0
+            else 0  
         }
     }
 
     def initRightUp(e: SEdge, loop: Loop, pathIndex: Int): Int = {
         val lst = loop.l
-        if ((lst.map(x => x.head) :+ ve(e.initial).head) contains e) 0
+        if ((lst.map(x => x.head) :+ ve(e.initial).head) contains e) 0     
         else {
             val path = lst(pathIndex)
             val previousEdge = previousEdgeInit(e)
@@ -344,7 +371,7 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
 
     def initLeft(e: SEdge, loop: Loop, pathIndex: Int): Int = {
         val lst = loop.l
-        if (termRightUp(e, loop, pathIndex) == 0) {
+        if (initRightUp(e, loop, pathIndex) == 0) {
             val path = lst(pathIndex)
             if ((pathIndex %2 == 0) && (e == path.head)) {
                 val previousEdge = lst((pathIndex -1 +lst.length) %lst.length).head
@@ -364,6 +391,48 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
         }
         else 0
     }
+
+    def edgeSelfIntersectionsCalc(e: SEdge, pathIndex1: Int, pathIndex2: Int, loop1: Loop, 
+        loop2: Loop, colourDir: List[Int], relSign: Int): List[Int] = {
+
+        val terml1 = termLeft(e, loop1, pathIndex1)
+        val terml2 = termLeft(e, loop2, pathIndex2)
+        val initl1 = initLeft(e, loop1, pathIndex1)
+        val initl2 = initLeft(e, loop2, pathIndex2)
+        if (e.typ.abs == 1) {
+            val sgn = colSigns(e.col)*colourDir(e.col)
+            val main =  {
+                if (sgn == 1) {
+                    if (e.typ == 1) 0
+                    else -1
+                }
+                else {
+                    if (e.typ == 1) 1
+                    else 0
+                }
+            }
+            List(main*relSign, termLeftIntersection(e, colourDir, 0, 0, terml1, terml2, relSign),
+            initLeftIntersection(e, colourDir, 0, 0, initl1, initl2, relSign))
+        } 
+        else {
+            val termru1 = termRightUp(e, loop1, pathIndex1)
+            val termru2 = termRightUp(e, loop2, pathIndex2)
+            val initru1 = initRightUp(e, loop1, pathIndex1)
+            val initru2 = initRightUp(e, loop2, pathIndex2)
+            /** println(List(termMain(e, colourDir, termru1, termru2, relSign),
+               initMain(e, colourDir, initru1, initru2, relSign),
+               verticalIntersection(e, colourDir, relSign),
+               termLeftIntersection(e, colourDir, termru1, termru2, terml1, terml2, relSign),
+               initLeftIntersection(e, colourDir, initru1, initru2, initl1, initl2, relSign) ))*/
+            List(termMain(e, colourDir, termru1, termru2, relSign),
+            initMain(e, colourDir, initru1, initru2, relSign),
+            verticalIntersection(e, colourDir, relSign),
+            termLeftIntersection(e, colourDir, termru1, termru2, terml1, terml2, relSign), 
+            initLeftIntersection(e, colourDir, initru1, initru2, initl1, initl2, relSign))
+
+        }
+    }
+
 
     def edgeSelfIntersection(e: SEdge, pathIndex1: Int, pathIndex2: Int, loop1: Loop, 
         loop2: Loop, colourDir: List[Int], relSign: Int): Int = {
@@ -466,14 +535,8 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
         }
         
     }
-    
-    def intersectLoops(loop1: Loop, 
-        loop2: Loop, colourDir: List[Int]): Int = {
 
-        require(checkLoop(loop1.l), s"$loop1 is not a loop")
-        require(checkLoop(loop2.l), s"$loop2 is not a loop")
-
-        def makeJunctions(loop: Loop): List[Junction] = {
+    def makeJunctions(loop: Loop): List[Junction] = {
             val lst = loop.l
             val turns = lst.zip(lst.tail :+ lst.head)
             (0.to(turns.length -1).toList).map(x => if (x %2 == 0) 
@@ -483,7 +546,66 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
                 Junction(lst(x)(y), lst(x)(y+1), lst(x)(y).terminal))) else 
                 ((0.to(lst(x).length -2).toList).map(y => 
                 Junction(lst(x)(y+1), lst(x)(y), lst(x)(y).terminal)))).flatMap(x => x)
+    }
+
+     def edgeIntersectionsCalc(pathIndex1: Int, pathIndex2: Int, 
+        loop1: Loop, loop2: Loop, colourDir: List[Int], relSign: Int): Int = {
+            val path1 = loop1.l(pathIndex1)
+            val path2 = loop2.l(pathIndex2)
+            (path1.toSet intersect path2.toSet).toList.map(x => 
+            edgeSelfIntersection(x, pathIndex1, pathIndex2, 
+            loop1, loop2, colourDir, relSign)).fold(0)((a,b) => a+b)
+    }
+
+    def intersectionsCalc(loop1: Loop, loop2: Loop, colourDir: List[Int]): List[Int] = {
+        val junctions1 = makeJunctions(loop1)
+        val junctions2 = makeJunctions(loop2)
+
+        val lst1 = loop1.l
+        val lst2 = loop2.l
+        
+        val jjIntersections = junctions1.map(x => junctions2.map(y => 
+            x.intersectJunction(y, colourDir))).flatMap(x => x).fold(0)((a,b) => a+b)
+        
+        val je1Intersections = junctions1.map(x => (0.to(lst2.length -1).toList).map(y => 
+            if (y %2 == 0) lst2(y).map(z => 
+            x.intersectEdge(z, colourDir, 1)) else List[Int]()).flatMap(y => 
+            y)).flatMap(x => x).fold(0)((a,b) => a+b)
+        val je2Intersections = junctions1.map(x => (0.to(lst2.length -1).toList).map(y => 
+            if (y %2 == 1) lst2(y).map(z => 
+            x.intersectEdge(z, colourDir, -1)) else List[Int]()).flatMap(y => 
+            y)).flatMap(x => x).fold(0)((a,b) => a+b)
+        
+
+        def edgeIntersections(pathIndex1: Int, pathIndex2: Int, 
+        loop1: Loop, loop2: Loop, relSign: Int): Int = {
+            val path1 = loop1.l(pathIndex1)
+            val path2 = loop2.l(pathIndex2)
+            (path1.toSet intersect path2.toSet).toList.map(x => 
+            edgeSelfIntersection(x, pathIndex1, pathIndex2, 
+            loop1, loop2, colourDir, relSign)).fold(0)((a,b) => a+b)
         }
+
+        val pathIndexPairs = (0.to(loop1.l.length -1).toList).map(x => 
+            (0.to(loop2.l.length -1).toList).map(y => (x,y))).flatMap(x => x)
+        val ee1Intersections = pathIndexPairs.map(x => if (x._1 %2 == x._2 %2) 
+            edgeIntersections(x._1, x._2, loop1, loop2, 1) else 0).fold(0)((a, b) => a+ b)
+        val ee2Intersections = pathIndexPairs.map(x => if (x._1 %2 != x._2 %2) 
+            edgeIntersections(x._1, x._2, loop1, loop2, -1) else 0).fold(0)((a, b) => a+ b)
+        
+        List(jjIntersections, je1Intersections, je2Intersections, ee1Intersections, ee2Intersections)
+        
+    }
+
+
+    
+    def intersectLoops(loop1: Loop, 
+        loop2: Loop, colourDir: List[Int]): Int = {
+
+        require(checkLoop(loop1.l), s"$loop1 is not a loop")
+        require(checkLoop(loop2.l), s"$loop2 is not a loop")
+
+        
 
         val junctions1 = makeJunctions(loop1)
         val junctions2 = makeJunctions(loop2)
@@ -667,12 +789,32 @@ case class SGraph(vertices: List[SVertex], edgeList: List[SEdge], edgeOrder:
     {
     import gensm._
     import Braid._
-    val p = Braid(List(-1,2,-1,2,-1), 3)
-    val sgraph = makeGraph(p, List(0,1), List(1,1))
+    val p = Braid(List(-1,2,-1,2,-1,2), 3)
+    val sgraph = makeGraph(p, List(0,1,2), List(1,1,1))
     sgraph
-    val List(l1, l2,l3) = sgraph.homologyBasis
-    sgraph.intersectLoops(l3,l2, List(1,1))
+    val List(l1, l2) = sgraph.homologyBasis
+    sgraph.intersectLoops(l2,l1, List(1,1))
+    val List(e1,e2,e3,e4) = sgraph.edges
+    
+    
     }
+
+    {
+    val e = e2
+    val loop1 = l1
+    val loop2 = l1
+    val pathIndex1 = 0
+    val pathIndex2 = 0
+    val terml1 = termLeft(e, loop1, pathIndex1)
+    val terml2 = termLeft(e, loop2, pathIndex2)
+    val initl1 = initLeft(e, loop1, pathIndex1)
+    val initl2 = initLeft(e, loop2, pathIndex2)
+    val termru1 = termRightUp(e, loop1, pathIndex1)
+    val termru2 = termRightUp(e, loop2, pathIndex2)
+    val initru1 = initRightUp(e, loop1, pathIndex1)
+    val initru2 = initRightUp(e, loop2, pathIndex2)
+    }
+
     */
 
 

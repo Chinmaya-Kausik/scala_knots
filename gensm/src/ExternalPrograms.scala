@@ -13,18 +13,18 @@ object ExternalPrograms {
 
 
     def externalPrograms(args: Array[String]): Unit = {
-        println("Please enter the number of strands")
+        println("\nPlease enter the number of strands")
         val strands = readLine().toInt
-        println("Please enter the braid description \n (As a sequence of s" +
+        println("\nPlease enter the braid description \n (As a sequence of s" +
         "paced integers - like '1 -1 2 3 2')")
         val braid1: String = readLine()
         val p = Braid(braid1.split(" ").map(x => x.toInt).toList, strands)
-        println("This braid has the following cycle decomposition:")
+        println("\nThis braid has the following cycle decomposition:")
         println(p.cycleDecomp)
-        println("Please enter color assignments as a sequence of spaced integers \n " +
+        println("\nPlease enter color assignments as a sequence of spaced integers \n " +
         "(Starting from 0 and without missing any natural number)")
         val preColList: List[Int] = readLine().split(" ").map(x => x.toInt).toList
-        println("Please also enter orientations for the knots as a sequence of spaced integers \n " +
+        println("\nPlease also enter orientations for the knots as a sequence of spaced integers \n " +
         "(1 is up-down and -1 is down-up)")       
         val orientations = readLine().split(" ").map(x => x.toInt).toList
         val preSgraph = makeGraph(p, preColList, orientations)
@@ -37,28 +37,28 @@ object ExternalPrograms {
         val newColList = findColorPermutations(p, preColList, preColList, preColList.max+1, 50, 
         preSgraph.homologyBasis.length)
         val sgraph = makeGraph(p, newColList, orientations)
-        if (sgraph.homologyBasis.isEmpty) println("The Alexander polynomial is 1")
+        if (sgraph.homologyBasis.isEmpty) println("\nThe Alexander polynomial is 1")
         else {
             
-            println("Please enter your desired output format - 1/2/3 = MATLAB/Mathematica/Macaulay2 (no spaces)")
+            println("\nPlease enter your desired output format - 1/2/3 = MATLAB/Mathematica/Macaulay2 (no spaces)")
             val choice = readLine() 
             if (choice == "1") {
                 val pm = sgraph.presentationMatrix
                 
-                println("syms " ++ (0.to(orientations.length -1).toList).map(x => 
+                println("\nsyms " ++ (0.to(orientations.length -1).toList).map(x => 
                 "t"++ x.toString).reduceRight((a,b) => a ++ " " ++ b) ++ "\n A = [" ++
                 pm.map(x => (x.reduceRight((a,b) => a ++"("++ b ++ ")"))).reduceRight((a,b) => 
                 a ++";"++ b) ++ "]")
             }
             else if (choice == "2") {
                 val pm = sgraph.presentationMatrix
-                println("det [" ++ pm.map(x => ("[" ++ x.reduceRight((a,b) => a ++","++ b) ++ "]")).reduceRight((a,b) => 
+                println("\ndet [" ++ pm.map(x => ("[" ++ x.reduceRight((a,b) => a ++","++ b) ++ "]")).reduceRight((a,b) => 
                 a ++","++ b) ++ "]")
                 
             }
             else if (choice == "3") {
                 val pm = sgraph.presentationMatrix
-                   println("R = ZZ[" ++ (0.to(orientations.length -1).toList).map(x => 
+                   println("\nR = ZZ[" ++ (0.to(orientations.length -1).toList).map(x => 
                    "t"++ x.toString).reduceRight((a,b) => a ++ "," ++ b) ++ "]; a = matrix {" ++
                    pm.map(x => ("{" ++ x.reduceRight((a,b) => a ++","++ b) ++ "}")).reduceRight((a,b) => 
                    a ++","++ b) ++ "}")

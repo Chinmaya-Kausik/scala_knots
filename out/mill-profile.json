@@ -1,17 +1,137 @@
 [
     {
         "label": "gensm.resources",
-        "millis": 20,
+        "millis": 233,
         "cached": false
     },
     {
         "label": "mill.scalalib.ZincWorkerModule.compilerInterfaceClasspath",
-        "millis": 2,
+        "millis": 13,
         "cached": true
     },
     {
         "label": "mill.scalalib.ZincWorkerModule.classpath",
-        "millis": 5,
+        "millis": 24,
+        "cached": true
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.worker",
+        "millis": 1984,
+        "cached": false
+    },
+    {
+        "label": "gensm.upstreamCompileOutput",
+        "millis": 12,
+        "cached": true
+    },
+    {
+        "label": "gensm.sources",
+        "millis": 30,
+        "cached": false
+    },
+    {
+        "label": "gensm.generatedSources",
+        "millis": 6,
+        "cached": true
+    },
+    {
+        "label": "gensm.allSources",
+        "millis": 9,
+        "cached": true
+    },
+    {
+        "label": "gensm.allSourceFiles",
+        "millis": 7,
+        "cached": true
+    },
+    {
+        "label": "gensm.transitiveLocalClasspath",
+        "millis": 10,
+        "cached": true
+    },
+    {
+        "label": "gensm.unmanagedClasspath",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaVersion",
+        "millis": 8,
+        "cached": true
+    },
+    {
+        "label": "gensm.platformSuffix",
+        "millis": 8,
+        "cached": true
+    },
+    {
+        "label": "gensm.compileIvyDeps",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaOrganization",
+        "millis": 8,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaLibraryIvyDeps",
+        "millis": 50,
+        "cached": true
+    },
+    {
+        "label": "gensm.ivyDeps",
+        "millis": 16,
+        "cached": true
+    },
+    {
+        "label": "gensm.transitiveIvyDeps",
+        "millis": 13,
+        "cached": true
+    },
+    {
+        "label": "gensm.compileClasspath",
+        "millis": 14,
+        "cached": true
+    },
+    {
+        "label": "gensm.javacOptions",
+        "millis": 3,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacOptions",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalaCompilerClasspath",
+        "millis": 9,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacPluginIvyDeps",
+        "millis": 2,
+        "cached": true
+    },
+    {
+        "label": "gensm.scalacPluginClasspath",
+        "millis": 6,
+        "cached": true
+    },
+    {
+        "label": "gensm.compile",
+        "millis": 7,
+        "cached": true
+    },
+    {
+        "label": "gensm.localClasspath",
+        "millis": 6,
+        "cached": true
+    },
+    {
+        "label": "gensm.mainClass",
+        "millis": 7,
         "cached": true
     },
     {
@@ -20,133 +140,43 @@
         "cached": true
     },
     {
-        "label": "gensm.upstreamCompileOutput",
-        "millis": 0,
+        "label": "gensm.finalMainClassOpt",
+        "millis": 7,
         "cached": true
     },
     {
-        "label": "gensm.sources",
-        "millis": 22,
+        "label": "gensm.manifest",
+        "millis": 13,
         "cached": false
     },
     {
-        "label": "gensm.generatedSources",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.allSources",
-        "millis": 18,
-        "cached": false
-    },
-    {
-        "label": "gensm.allSourceFiles",
-        "millis": 23,
-        "cached": false
-    },
-    {
-        "label": "gensm.transitiveLocalClasspath",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.unmanagedClasspath",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalaVersion",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.platformSuffix",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.compileIvyDeps",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalaOrganization",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalaLibraryIvyDeps",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.ivyDeps",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.transitiveIvyDeps",
+        "label": "gensm.forkArgs",
         "millis": 2,
         "cached": true
     },
     {
-        "label": "gensm.compileClasspath",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.javacOptions",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalacOptions",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalaCompilerClasspath",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalacPluginIvyDeps",
-        "millis": 1,
-        "cached": true
-    },
-    {
-        "label": "gensm.scalacPluginClasspath",
-        "millis": 0,
-        "cached": true
-    },
-    {
-        "label": "gensm.compile",
-        "millis": 1613,
-        "cached": false
-    },
-    {
-        "label": "gensm.localClasspath",
-        "millis": 14,
+        "label": "gensm.prependShellScript",
+        "millis": 13,
         "cached": false
     },
     {
         "label": "gensm.runIvyDeps",
-        "millis": 1,
+        "millis": 3,
         "cached": true
     },
     {
-        "label": "gensm.ammoniteVersion",
-        "millis": 0,
+        "label": "gensm.upstreamAssemblyClasspath",
+        "millis": 8,
         "cached": true
     },
     {
-        "label": "gensm.ammoniteReplClasspath",
-        "millis": 472,
+        "label": "gensm.upstreamAssembly",
+        "millis": 4726,
         "cached": false
     },
     {
-        "label": "gensm.repl",
-        "millis": 120760,
+        "label": "gensm.assembly",
+        "millis": 2105,
         "cached": false
     }
 ]

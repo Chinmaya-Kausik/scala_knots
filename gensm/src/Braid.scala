@@ -69,7 +69,6 @@ object Braid {
     }
     
     def makeGraph(p: Braid, colList: List[Int], colSigns: List[Int]): SGraph = {
-
         val vert = genVertices(p, colList)
         val initGraph = SGraph(vert, 
         List[SEdge](), ((x,y) => List[SEdge]()), (_ => List[SEdge]()), colSigns)

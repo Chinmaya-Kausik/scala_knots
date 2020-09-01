@@ -1,7 +1,7 @@
 {
     "value": [
         "ref:7e7a273e:/home/chinmaya_kausik/scala_knots/gensm/resources",
-        "ref:e373920e:/home/chinmaya_kausik/scala_knots/out/gensm/compile/dest/classes",
+        "ref:1409d865:/home/chinmaya_kausik/scala_knots/out/gensm/compile/dest/classes",
         "qref:04c60bc6:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/ammonite-util_2.12/2.0.4/ammonite-util_2.12-2.0.4.jar",
         "qref:b944a148:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/os-lib_2.12/0.6.3/os-lib_2.12-0.6.3.jar",
         "qref:f8ab44cc:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.2.0/sourcecode_2.12-0.2.0.jar",
@@ -26,6 +26,7 @@
         "qref:0c2ed80b:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.1.2/scala-parser-combinators_2.12-1.1.2.jar",
         "qref:71d8b3c1:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/pprint_2.12/0.5.8/pprint_2.12-0.5.8.jar",
         "qref:b562c342:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/ammonite-repl-api_2.12.10/2.0.4/ammonite-repl-api_2.12.10-2.0.4.jar",
+        "qref:97b94eb5:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/ojalgo/ojalgo/48.0.0/ojalgo-48.0.0.jar",
         "qref:5b262504:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/ammonite-interp-api_2.12.10/2.0.4/ammonite-interp-api_2.12.10-2.0.4.jar",
         "qref:f34b9853:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/cc/redberry/rings/2.5.7/rings-2.5.7.jar",
         "qref:d118a132:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/upack_2.12/0.9.8/upack_2.12-0.9.8.jar",
@@ -46,6 +47,6 @@
         "qref:befe1c65:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/com/lihaoyi/ammonite-repl_2.12.10/2.0.4/ammonite-repl_2.12.10-2.0.4.jar",
         "qref:6993d2b6:/root/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline-terminal/3.6.2/jline-terminal-3.6.2.jar"
     ],
-    "valueHash": -1703665056,
-    "inputsHash": -12140570
+    "valueHash": -1836173176,
+    "inputsHash": 183098984
 }

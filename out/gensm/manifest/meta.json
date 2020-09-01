@@ -1,0 +1,11 @@
+{
+    "value": {
+        "main": {
+            "Manifest-Version": "1.0",
+            "Created-By": "Scala mill",
+            "Main-Class": "gensm.GenSM"
+        }
+    },
+    "valueHash": 1676310762,
+    "inputsHash": -682184858
+}
