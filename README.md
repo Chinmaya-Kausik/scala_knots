@@ -8,7 +8,7 @@ Implementing various link algorithms in scala, starting with obtaining the Stand
 **Note:** If you don't use Windows, don't download "rungensm".
 2. Make sure you have Java installed (check [here](https://www.java.com/en/download/installed.jsp)).
 3. If you use a Windows system, open the folder and click on "rungensm".
-4. If you use Linux, go to the Bash shell and type "java -jar <filePath>/gensm.jar".
+4. If you use Linux, go to the Bash shell and type "java -jar [filePath]/gensm.jar".
 5. If you use Mac OS X, just double click on "gensm".
 6. You can also download files from "link_files" for some braid descriptions. All braid descriptions with their corresponding multivariate Alexander polynomials available on LinkInfo are given in the file LinkInfoBraids.
   
