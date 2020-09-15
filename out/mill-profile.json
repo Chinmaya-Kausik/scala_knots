@@ -1,57 +1,57 @@
 [
     {
         "label": "gensm.resources",
-        "millis": 233,
+        "millis": 164,
         "cached": false
     },
     {
         "label": "mill.scalalib.ZincWorkerModule.compilerInterfaceClasspath",
-        "millis": 13,
+        "millis": 5,
         "cached": true
     },
     {
         "label": "mill.scalalib.ZincWorkerModule.classpath",
-        "millis": 24,
+        "millis": 11,
         "cached": true
     },
     {
         "label": "mill.scalalib.ZincWorkerModule.worker",
-        "millis": 1984,
+        "millis": 263,
         "cached": false
     },
     {
         "label": "gensm.upstreamCompileOutput",
-        "millis": 12,
+        "millis": 2,
         "cached": true
     },
     {
         "label": "gensm.sources",
-        "millis": 30,
+        "millis": 34,
         "cached": false
     },
     {
         "label": "gensm.generatedSources",
-        "millis": 6,
+        "millis": 2,
         "cached": true
     },
     {
         "label": "gensm.allSources",
-        "millis": 9,
+        "millis": 3,
         "cached": true
     },
     {
         "label": "gensm.allSourceFiles",
-        "millis": 7,
+        "millis": 13,
         "cached": true
     },
     {
         "label": "gensm.transitiveLocalClasspath",
-        "millis": 10,
+        "millis": 6,
         "cached": true
     },
     {
         "label": "gensm.unmanagedClasspath",
-        "millis": 2,
+        "millis": 7,
         "cached": true
     },
     {
@@ -61,42 +61,42 @@
     },
     {
         "label": "gensm.platformSuffix",
-        "millis": 8,
+        "millis": 6,
         "cached": true
     },
     {
         "label": "gensm.compileIvyDeps",
-        "millis": 2,
+        "millis": 7,
         "cached": true
     },
     {
         "label": "gensm.scalaOrganization",
-        "millis": 8,
+        "millis": 10,
         "cached": true
     },
     {
         "label": "gensm.scalaLibraryIvyDeps",
-        "millis": 50,
+        "millis": 111,
         "cached": true
     },
     {
         "label": "gensm.ivyDeps",
-        "millis": 16,
+        "millis": 12,
         "cached": true
     },
     {
         "label": "gensm.transitiveIvyDeps",
-        "millis": 13,
+        "millis": 8,
         "cached": true
     },
     {
         "label": "gensm.compileClasspath",
-        "millis": 14,
+        "millis": 3,
         "cached": true
     },
     {
         "label": "gensm.javacOptions",
-        "millis": 3,
+        "millis": 2,
         "cached": true
     },
     {
@@ -106,7 +106,7 @@
     },
     {
         "label": "gensm.scalaCompilerClasspath",
-        "millis": 9,
+        "millis": 2,
         "cached": true
     },
     {
@@ -116,37 +116,37 @@
     },
     {
         "label": "gensm.scalacPluginClasspath",
-        "millis": 6,
+        "millis": 2,
         "cached": true
     },
     {
         "label": "gensm.compile",
-        "millis": 7,
+        "millis": 3,
         "cached": true
     },
     {
         "label": "gensm.localClasspath",
-        "millis": 6,
+        "millis": 2,
         "cached": true
     },
     {
         "label": "gensm.mainClass",
-        "millis": 7,
-        "cached": true
-    },
-    {
-        "label": "mill.scalalib.ZincWorkerModule.worker",
         "millis": 1,
         "cached": true
     },
     {
+        "label": "mill.scalalib.ZincWorkerModule.worker",
+        "millis": 0,
+        "cached": true
+    },
+    {
         "label": "gensm.finalMainClassOpt",
-        "millis": 7,
+        "millis": 2,
         "cached": true
     },
     {
         "label": "gensm.manifest",
-        "millis": 13,
+        "millis": 17,
         "cached": false
     },
     {
@@ -156,27 +156,27 @@
     },
     {
         "label": "gensm.prependShellScript",
-        "millis": 13,
+        "millis": 21,
         "cached": false
     },
     {
         "label": "gensm.runIvyDeps",
-        "millis": 3,
+        "millis": 1,
         "cached": true
     },
     {
         "label": "gensm.upstreamAssemblyClasspath",
-        "millis": 8,
+        "millis": 4,
         "cached": true
     },
     {
         "label": "gensm.upstreamAssembly",
-        "millis": 4726,
+        "millis": 5995,
         "cached": false
     },
     {
         "label": "gensm.assembly",
-        "millis": 2105,
+        "millis": 1977,
         "cached": false
     }
 ]

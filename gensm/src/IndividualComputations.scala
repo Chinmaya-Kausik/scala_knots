@@ -49,17 +49,19 @@ object IndividualComputations {
             val m = PolyMatrix(ring, orientations.length, pm.map(x => x.map(y => ring(y))))
             println("\nThe Alexander polynomial is") 
             println(m.factorizedBareissDet)
-            println("\nWould you also like to evaluate the signature at a point? (Y/N)")
+            println("\nWould you also like to evaluate the signature and nullity at a point? (Y/N)")
             val signatureInput = readLine()
             if (signatureInput == "Y") { 
                 println("\nPlease enter " ++ (preColList.max +1).toString ++ 
-                " space-separated input angle(s) for the signature in order (values must be in radians, you can use Pi) ~\n" +
-                "For example: Pi 2*Pi/5")
+                " space-separated input angle(s) for the signature in order " +
+                "(values must be in terms of fractions of 2*Pi) ~\n" +
+                "For example: \'1/2 1/5\' = Pi 2*Pi/5")
                 val doubleParser = new DoubleParse(unary = Map("sin" -> sin, "cos" -> cos))
                 val inputValues = readLine().trim().split(" ").map(y => 
-                doubleParser.evaluate(y.trim())(Map())).toList
+                doubleParser.evaluate(y.trim())(Map())*2*Pi).toList
                 val signature = m.signatureFunction(inputValues)
-                println(s"\nThe signature is $signature")
+                val nullity = m.nullityFunction(inputValues)
+                println(s"\nThe signature is $signature\n The nullity is $nullity")
             }
             else println("")
         }

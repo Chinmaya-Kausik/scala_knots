@@ -38,7 +38,7 @@ object LinkFiles {
         val braids = braidInputs.map(x => Braid(x(1).trim().split(" +").toList.map(x => 
             x.trim().toInt).toList, x(0).toInt))
         println("\nWhich of these do you want? " +
-          "\n1. Only the Alexander polynomial \n2. Only signature values \n3. Both")
+          "\n1. Only the Alexander polynomial \n2. Only signature and nullity values \n3. Both")
         val outputChoice = readLine().trim().toInt
         val preSgraphs = braids.map(x => makeGraph(x, (0.to(x.ctComponents-1)).toList, 
             (0.to(x.ctComponents-1)).toList.map(x => 1)))
@@ -69,24 +69,25 @@ object LinkFiles {
             println("\nThe default values are -1. Please specify if you would like to use that (Y/N).")
             val defaultUse = readLine()
             println(s"\nPlease enter any other sets of $n space-separated input angle(s) " +
-              s"you want us to evaluate the signature for" +
-              s", in order (values must be in radians, you can use Pi) ~\n" +
+              s"you want us to evaluate the signature and nullity for" +
+              s", in order (values must be specified in terms fractions of 2*Pi) ~\n" +
             s"Separate different sets by commas \n" +
             s"Leave this blank if you only want to use the default\n" +
-            s"For example: Pi 2*Pi/5, Pi/4 Pi/8")
+            s"For example: \'1/2 1/5, 1/8 1/16\' = Pi 2*Pi/5, Pi/4 Pi/8")
             val doubleParser = new DoubleParse(unary = Map("sin" -> sin, "cos" -> cos))
             if (defaultUse == "Y") {
                 val defaultValues = (0.to(n-1)).toList.map(x => Pi)
                 val userValues = readLine()
                 val inputValues = if (userValues.isEmpty) List(defaultValues) else 
                     (userValues.trim().split(",").toList.map(x => x.trim().split(" ").toList.map(y => 
-                    doubleParser.evaluate(y.trim())(Map())).toList) :+ defaultValues)
+                    doubleParser.evaluate(y.trim())(Map())*2*Pi).toList) :+ defaultValues)
             
-                val textValues = ("Strands, Braids" ++ ("Pi "*n) ++ userValues) +: 
+                val textValues = ("Strands, Braids" ++ ("1/2 "*n) ++ userValues) +: 
                     braidInputs.zip(presentationMatrices).map(x => 
-                    if (x._2.pm.isEmpty) (x._1 ++ inputValues.map(x => "0")).reduceRight((a,b) => a ++ "," ++ b) 
-                    else (x._1 ++ inputValues.map(y => 
-                    x._2.signatureFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
+                    if (x._2.pm.isEmpty) (x._1 ++ 
+                    inputValues.map(x => "0; 0")).reduceRight((a,b) => a ++ "," ++ b) 
+                    else (x._1 ++ inputValues.map(y => x._2.signatureFunction(y).toString ++ "; " ++ 
+                    x._2.nullityFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
                 val polyFile = new PrintWriter(new File(
                     filePath.slice(0, filePath.lastIndexOf('.')) ++ "Output.csv"))
                 polyFile.write(textValues.reduceRight((a,b) => a ++ "\n" ++ b))
@@ -95,12 +96,13 @@ object LinkFiles {
             else {
                 val userValues = readLine()
                 val inputValues = userValues.trim().split(",").toList.map(x => 
-                    x.trim().split(" ").toList.map(y => doubleParser.evaluate(y.trim())(Map())).toList)
+                    x.trim().split(" ").toList.map(y => doubleParser.evaluate(y.trim())(Map())*2*Pi).toList)
                 val textValues = ("Strands, Braids, " ++ userValues) +: 
-                    braidInputs.zip(presentationMatrices).map(x => if (x._2.pm.isEmpty) 
-                    (x._1 ++ inputValues.map(x => "0")).reduceRight((a,b) => a ++ "," ++ b) 
-                    else (x._1 ++ inputValues.map(y => 
-                    x._2.signatureFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
+                    braidInputs.zip(presentationMatrices).map(x => 
+                    if (x._2.pm.isEmpty) (x._1 ++ 
+                    inputValues.map(x => "0; 0")).reduceRight((a,b) => a ++ "," ++ b) 
+                    else (x._1 ++ inputValues.map(y => x._2.signatureFunction(y).toString ++ "; " ++ 
+                    x._2.nullityFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
                 val polyFile = new PrintWriter(new File(
                     filePath.slice(0, filePath.lastIndexOf('.')) ++ "Output.csv"))
                 polyFile.write(textValues.reduceRight((a,b) => a ++ "\n" ++ b))
@@ -115,26 +117,27 @@ object LinkFiles {
             val defaultUse = readLine()
             println(s"\nPlease enter any other sets of $n space-separated input angle(s) " +
               s"you want us to evaluate the signature for" +
-              s", in order (values must be in radians, you can use Pi) ~\n" +
+             s", in order (values must be specified in terms fractions of 2*Pi) ~\n" +
             s"Separate different sets by commas \n" +
             s"Leave this blank if you only want to use the default\n" +
-            s"For example: Pi 2*Pi/5, Pi/4 Pi/8")
+            s"For example: \'1/2 1/5, 1/8 1/16\' = Pi 2*Pi/5, Pi/4 Pi/8")
             val doubleParser = new DoubleParse(unary = Map("sin" -> sin, "cos" -> cos))
             if (defaultUse == "Y") {
                 val defaultValues = (0.to(n-1)).toList.map(x => Pi)
                 val userValues = readLine()
                 val inputValues = if (userValues.isEmpty) List(defaultValues) else 
                     (userValues.trim().split(",").toList.map(x => x.trim().split(" ").toList.map(y => 
-                    doubleParser.evaluate(y.trim())(Map())).toList) :+ defaultValues)
+                    doubleParser.evaluate(y.trim())(Map())*2*Pi).toList) :+ defaultValues)
             
                 val textValues = ("Strands, Braids, Alexander Polynomial, " ++
-                    "Without Units in the Localized Ring, " ++ ("Pi "*n) ++ "," ++ userValues) +: 
+                    "Without Units in the Localized Ring, " ++ ("1/2 "*n) ++ "," ++ userValues) +: 
                     braidInputs.zip(presentationMatrices).map(x => 
                     if (x._2.pm.isEmpty) (x._1 ++ List("\'1\'", "\'1\'") ++ 
-                        inputValues.map(x => "0")).reduceRight((a,b) => a ++ "," ++ b) 
+                        inputValues.map(x => "0; 0")).reduceRight((a,b) => a ++ "," ++ b) 
                     else (x._1 ++ List("\'" ++ x._2.factorizedBareissDet++ "\'", 
                         "\'" ++ ring.stringify(x._2.strippedBareissDet) ++ "\'") ++ inputValues.map(y => 
-                        x._2.signatureFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
+                        x._2.signatureFunction(y).toString ++ "; " ++ 
+                        x._2.nullityFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
                 val polyFile = new PrintWriter(new File(
                     filePath.slice(0, filePath.lastIndexOf('.')) ++ "Output.csv"))
                 polyFile.write(textValues.reduceRight((a,b) => a ++ "\n" ++ b))
@@ -143,15 +146,16 @@ object LinkFiles {
             else {
                 val userValues = readLine()
                 val inputValues = userValues.trim().split(",").toList.map(x => 
-                    x.trim().split(" ").toList.map(y => doubleParser.evaluate(y.trim())(Map())).toList)
+                    x.trim().split(" ").toList.map(y => doubleParser.evaluate(y.trim())(Map())*2*Pi).toList)
                 val textValues = ("Strands, Braids, Alexander Polynomial, " +
                     "Without Units in the Localized Ring, " ++ userValues) +: 
                     braidInputs.zip(presentationMatrices).map(x => 
                     if (x._2.pm.isEmpty) (x._1 ++ List("\'1\'", "\'1\'") ++ 
-                        inputValues.map(x => "0")).reduceRight((a,b) => a ++ "," ++ b) 
+                        inputValues.map(x => "0; 0")).reduceRight((a,b) => a ++ "," ++ b) 
                     else (x._1 ++ List("\'" ++ x._2.factorizedBareissDet++ "\'", 
                         "\'" ++ ring.stringify(x._2.strippedBareissDet) ++ "\'") ++ inputValues.map(y => 
-                        x._2.signatureFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
+                        x._2.signatureFunction(y).toString ++ "; " ++ 
+                        x._2.nullityFunction(y).toString)).reduceRight((a,b) => a ++ "," ++ b))
                 val polyFile = new PrintWriter(new File(
                     filePath.slice(0, filePath.lastIndexOf('.')) ++ "Output.csv"))
                 polyFile.write(textValues.reduceRight((a,b) => a ++ "\n" ++ b))

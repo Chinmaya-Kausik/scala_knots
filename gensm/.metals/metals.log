@@ -11896,3 +11896,203 @@ WARNING: Unmatched cancel notification for request id 50229
 2020.09.01 12:41:49 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
 2020.09.01 12:41:52 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/ExternalPrograms.scala
 something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/ExternalPrograms.scala in Array[String]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/ExternalPrograms.scala, 287, 287, 300)
+2020.09.01 15:00:41 INFO  shutting down Metals
+2020.09.14 20:11:42 INFO  started: Metals version 0.9.3 in workspace '/home/chinmaya_kausik/scala_knots/gensm' for client vscode.
+2020.09.14 20:11:46 INFO  time: initialize in 3.81s
+2020.09.14 20:11:48 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.14 20:11:48 INFO  no build target: using presentation compiler with only scala-library
+2020.09.14 20:11:54 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+2020.09.14 20:11:54 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+2020.09.14 20:11:54 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/Braid.scala
+2020.09.14 20:11:54 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/SGraph.scala
+Sep 14, 2020 8:11:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+Sep 14, 2020 8:11:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5
+Sep 14, 2020 8:11:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7
+2020.09.14 20:12:34 INFO  shutting down Metals
+2020.09.15 12:17:05 INFO  started: Metals version 0.9.3 in workspace '/home/chinmaya_kausik/scala_knots/gensm' for client vscode.
+2020.09.15 12:17:09 INFO  time: initialize in 3.74s
+2020.09.15 12:17:10 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:17:10 INFO  no build target: using presentation compiler with only scala-library
+2020.09.15 12:17:19 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+2020.09.15 12:17:19 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+Sep 15, 2020 12:17:19 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2020.09.15 12:17:20 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/SGraph.scala
+Sep 15, 2020 12:17:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+Sep 15, 2020 12:17:21 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 11
+Sep 15, 2020 12:17:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17
+2020.09.15 12:17:30 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/ExternalPrograms.scala
+2020.09.15 12:18:12 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala
+Sep 15, 2020 12:18:55 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 133
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6269)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6267)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6266)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6267)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6266)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6267)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6266)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6267)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6266)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6255, 6255, 6267)
+2020.09.15 12:19:47 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:20:12 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:20:12 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:20:15 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:20:15 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6371, 6371, 6385)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[<error>]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6371, 6371, 6380)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6371, 6371, 6383)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6371, 6371, 6383)
+something's wrong: no file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala in List[Double]RangePosition(file:///home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala, 6371, 6371, 6383)
+Sep 15, 2020 12:21:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 612
+2020.09.15 12:21:21 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/PolyMatrix.scala
+2020.09.15 12:24:07 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:24:22 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:24:24 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:24:30 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:25:19 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:25:19 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:26:34 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:28:17 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:28:40 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:29:40 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+2020.09.15 12:29:46 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:30:16 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+Sep 15, 2020 12:32:19 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2130
+2020.09.15 12:32:35 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+2020.09.15 12:32:45 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+2020.09.15 12:32:51 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/Braid.scala
+2020.09.15 12:33:50 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+2020.09.15 12:34:11 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+Sep 15, 2020 12:35:37 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4238, count -1, length 9527
+Sep 15, 2020 12:35:43 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4238, count -1, length 9527
+Sep 15, 2020 12:35:47 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4238, count -1, length 9527
+Sep 15, 2020 12:35:48 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4238, count -1, length 9527
+Sep 15, 2020 12:35:52 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4238, count -1, length 9527
+Sep 15, 2020 12:35:53 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 4240, count -1, length 9529
+Sep 15, 2020 12:36:11 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 5272, count -1, length 9532
+Sep 15, 2020 12:36:12 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 5274, count -1, length 9534
+2020.09.15 12:36:22 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:36:22 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Sep 15, 2020 12:37:02 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 7124, count -1, length 9537
+Sep 15, 2020 12:37:03 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 7126, count -1, length 9539
+Sep 15, 2020 12:37:20 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:23 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:37:30 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:31 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:37:34 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:35 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:37:39 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:40 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:37:44 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2725
+Sep 15, 2020 12:37:44 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:37:47 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:48 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+2020.09.15 12:37:51 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:37:54 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Sep 15, 2020 12:37:57 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:37:58 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:00 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:01 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:04 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:05 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:08 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:09 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:12 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:13 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:16 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:17 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:20 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:21 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:25 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:27 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:30 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:32 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+Sep 15, 2020 12:38:40 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8443, count -1, length 9542
+Sep 15, 2020 12:38:41 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 8445, count -1, length 9544
+2020.09.15 12:38:42 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+Sep 15, 2020 12:38:57 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 2914, count -1, length 3201
+Sep 15, 2020 12:38:58 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: offset 2916, count -1, length 3203
+2020.09.15 12:39:01 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+Sep 15, 2020 12:40:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3254
+2020.09.15 12:41:04 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:04 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:04 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:04 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:04 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:07 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:41:09 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:09 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:09 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:09 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:10 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:10 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:16 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:19 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:19 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:23 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:29 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:29 WARN  no build tool detected in workspace '/home/chinmaya_kausik/scala_knots/gensm'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.15 12:42:35 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala
+2020.09.15 12:43:45 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+2020.09.15 12:44:17 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+Sep 15, 2020 12:44:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4114
+2020.09.15 12:45:44 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/IndividualComputations.scala
+2020.09.15 13:03:45 WARN  no build target for: /home/chinmaya_kausik/scala_knots/gensm/src/LinkFiles.scala

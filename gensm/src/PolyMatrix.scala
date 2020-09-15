@@ -125,7 +125,7 @@ case class PolyMatrix(ring: MultivariateRing[IntZ], varNum: Int, pm: List[List[M
         
     }
 
-    def signatureFunction(inputValues: List[Double]): Int = {
+    def eigenvalueFunction(inputValues: List[Double]): List[Double] = {
         val signatureExtra = ring((0.to(varNum-1).toList).map(x => 
                      "(1-tc"++ x.toString ++ ")").reduceRight((a,b) => a ++ "*" ++ b))
         val sm = pm.map(x => x.map(y => ring.multiply(signatureExtra, y)))
@@ -137,10 +137,18 @@ case class PolyMatrix(ring: MultivariateRing[IntZ], varNum: Int, pm: List[List[M
         val eigen = Eigenvalue.make(ojAlgoSM, true)
         eigen.decompose(ojAlgoSM)
         val eigenvaluesArray1D = eigen.getEigenvalues()
-        val eigenvalues = (0.to(eigenvaluesArray1D.length.toInt -1).toList).map(x => 
+        (0.to(eigenvaluesArray1D.length.toInt -1).toList).map(x => 
             eigenvaluesArray1D.get(x).getReal())
+        
+    }
+
+    def signatureFunction(inputValues: List[Double]): Int = {
+        val eigenvalues = eigenvalueFunction(inputValues)
         eigenvalues.count(x => (x> 0.0)) - eigenvalues.count(x => (x< 0.0))
     }
+
+    def nullityFunction(inputValues: List[Double]): Int = eigenvalueFunction(inputValues).count(
+        x => (x == 0.0))
         
         
         
