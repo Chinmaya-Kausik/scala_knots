@@ -1,6 +1,6 @@
 # Scala_Knots
 
-Implementing various link algorithms in scala, starting with obtaining the Standard and Generalized Seifert Matrices of a colored link from its braid description.
+Implementing various link algorithms in scala, starting with obtaining the standard and generalized Seifert Matrices of a colored link from its braid description.
 
 ## Instructions
 
