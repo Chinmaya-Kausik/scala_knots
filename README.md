@@ -1,4 +1,4 @@
-# Scala_Knots
+# Scala_Knots (NOTE: This project has moved to [py_knots](https://github.com/Chinmaya-Kausik/py_knots))
 
 Implementing various link algorithms in scala, starting with obtaining the standard and generalized Seifert Matrices of a colored link from its braid description.
 
