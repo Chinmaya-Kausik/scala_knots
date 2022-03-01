@@ -12,5 +12,5 @@ Implementing various link algorithms in scala, starting with obtaining the stand
    c. If you use Mac OS X, just double click on "gensm".
 4. You can also download files from "link_files" for some braid descriptions. All braid descriptions with their corresponding multivariate Alexander polynomials available on LinkInfo are given in the file LinkInfoBraids.
   
-Email <chinmaya@iisc.ac.in> for any questions.
+Email <ckausik@umich.edu> for any questions.
  
